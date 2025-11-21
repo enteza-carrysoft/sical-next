@@ -1,48 +1,7 @@
-// src/app/facturas/[id]/page.tsx
-import { Factura, TramiteFactura } from "@/types/sical";
+// app/facturas/[id]/page.tsx
 import TramitesTimeline from "@/components/facturas/TramitesTimeline";
 import EstadoBadge from "@/components/facturas/EstadoBadge";
-
-// TODO: reemplazar por fetch real a tu backend
-async function fetchFactura(id: string): Promise<Factura | null> {
-  const demoTramites: TramiteFactura[] = [
-    {
-      id: "t1",
-      facturaId: id,
-      tipo: "REGISTRADA",
-      fecha: "2024-03-03T10:15:00Z",
-      usuario: "Registro General",
-      observaciones: "Factura recibida vía FACe",
-    },
-    {
-      id: "t2",
-      facturaId: id,
-      tipo: "EN_SERVICIO",
-      fecha: "2024-03-04T09:00:00Z",
-      usuario: "Servicio Obras",
-      observaciones: "En revisión de conformidad",
-    },
-  ];
-
-  return {
-    id,
-    numeroFactura: "F2024/001",
-    fechaFactura: "2024-03-01",
-    fechaRegistro: "2024-03-03",
-    canal: "FACE",
-    proveedor: { id: "p1", nif: "B12345678", nombre: "Proveedor Demo SL" },
-    baseImponible: 1000,
-    iva: 210,
-    total: 1210,
-    afecta413: true,
-    fechaInicioPMP: "2024-03-03",
-    estadoTramitacion: "EN_SERVICIO",
-    estadoContable: "NO_OBLIGADA",
-    aplicaciones: [],
-    tramites: demoTramites,
-    esAbono: false,
-  };
-}
+import { fetchFactura } from "@/lib/api";
 
 interface Props {
   params: { id: string };

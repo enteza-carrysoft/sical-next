@@ -1,0 +1,20 @@
+# Backend Requirements - SICAL Next
+# Python 3.10+
+
+# Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+
+# Database
+oracledb==2.0.1
+
+# Utilidades
+python-dotenv==1.0.0
+python-multipart==0.0.6
+
+# Development
+pytest==7.4.4
+pytest-cov==4.1.0
+black==24.1.1
+flake8==7.0.0
